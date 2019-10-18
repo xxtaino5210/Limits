@@ -38,11 +38,11 @@ if(message.content.startsWith(prefix + "limit")) {
         if(!num) return message.channel.send("**? | Supply a number !");
         if(isNaN(num)) return message.channel.send("**? | Supply a number !**");
         config[message.guild.id].banLimit = num;
-        message.channel.send(`**? | Changed bans limit to : ${config[message.guild.id].banLimit}.**`)//Zine , Mohamed Tarek , Kbosh
+        message.channel.send(`**? | Changed bans limit to : ${config[message.guild.id].banLimit}.**`)//Taino
     }
     if(message.content.startsWith(prefix + "limitkicks")) {
         if(!num) return message.channel.send("**? | Supply a number !**");
-        if(isNaN(num)) return message.channel.send("**? | Supply a number !**");//Zine , Mohamed Tarek , Kbosh
+        if(isNaN(num)) return message.channel.send("**? | Supply a number !**");//Taino
         config[message.guild.id].kickLimits = num;
         message.channel.send(`**? | Changed kicks limit to : ${config[message.guild.id].kickLimits}.**`)
     }
@@ -99,15 +99,15 @@ client.on("channelDelete", async channel => {
             anti[channel.guild.id + entry.id].actions = "0"
         }, config[channel.guild.id].time * 1000)
     } else {
-        anti[channel.guild.id + entry.id].actions = Math.floor(anti[channel.guild.id + entry.id].actions + 1)//Zine , Mohamed Tarek , Kbosh
-        console.log("TETS");
+        anti[channel.guild.id + entry.id].actions = Math.floor(anti[channel.guild.id + entry.id].actions + 1)//Taino
+       console.log("TETS");
         setTimeout(() => {
             anti[channel.guild.id + entry.id].actions = "0"
         }, config[channel.guild.id].time * 1000)
         if (anti[channel.guild.id + entry.id].actions >= config[channel.guild.id].chaDelLimit) {
             channel.guild.members.get(entry.id).ban().catch(e => channel.guild.owner.send(`**? | ${entry.username} , Deleted many __Channles__.**`))
             anti[channel.guild.id + entry.id].actions = "0"
-            fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {//Zine , Mohamed Tarek , Kbosh
+            fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {//Taino
                 if (e) throw e;
             });//Taino
             fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function (e) {
