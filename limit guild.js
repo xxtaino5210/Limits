@@ -1,19 +1,17 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
-const prefix = "????? ?? ????";
+const prefix = "?";
 const moment = require('moment');
 const pretty = require("pretty-ms");
 const { User, MessageMentions } = require('discord.js') 
-const Canvas = require('canvas-prebuilt'); 
 const Jimp = require('jimp'); 
-const SQLite = require('sqlite'); 
 const path = require('path'); 
 const ms = require('parse-ms'); 
 
-//Zine , Mohamed Tarek , Kbosh
+//Taino
 
-//Zine , Mohamed Tarek , Kbosh
+//Taino
 
 let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
 let config = JSON.parse(fs.readFileSync("./config.json", "UTF8"));
@@ -59,7 +57,7 @@ if(message.content.startsWith(prefix + "limit")) {
         if(isNaN(num)) return message.channel.send("**? | Supply a number !**");
         config[message.guild.id].roleCrLimits = num;
         message.channel.send(`**? | Changed Role Creation limit to : ${config[message.guild.id].roleCrLimits}.**`)
-    }//Zine , Mohamed Tarek , Kbosh
+    }//Taino
     if(message.content.startsWith(prefix + "limitchannelDelete")) {
         if(!num) return message.channel.send("**? | Supply a number !**");
         if(isNaN(num)) return message.channel.send("**? | Supply a number !**");
@@ -93,10 +91,10 @@ client.on("channelDelete", async channel => {
         kickLimits: 3,
         roleCrLimits: 3
     }
-    if (!anti[channel.guild.id + entry.id]) {//Zine , Mohamed Tarek , Kbosh
+    if (!anti[channel.guild.id + entry.id]) {//Taino
         anti[channel.guild.id + entry.id] = {
             actions: 1
-        }//Zine , Mohamed Tarek , Kbosh
+        }//Taino
         setTimeout(() => {
             anti[channel.guild.id + entry.id].actions = "0"
         }, config[channel.guild.id].time * 1000)
@@ -111,7 +109,7 @@ client.on("channelDelete", async channel => {
             anti[channel.guild.id + entry.id].actions = "0"
             fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {//Zine , Mohamed Tarek , Kbosh
                 if (e) throw e;
-            });//Zine , Mohamed Tarek , Kbosh
+            });//Taino
             fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function (e) {
                 if (e) throw e;
             });
@@ -124,8 +122,7 @@ client.on("channelDelete", async channel => {
     fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function (e) {
         if (e) throw e;
     });
-});//Zine , Mohamed Tarek , Kbosh
-
+});//Taino
 client.on("roleDelete", async channel => {
     const entry1 = await channel.guild.fetchAuditLogs({
         type: 'ROLE_DELETE'
@@ -222,4 +219,4 @@ client.on("roleCreate", async channel => {
 
 
 
-client.login("?? ???? ?? ???? ?? ????? ???? ??? ?????? ?? ??? ?? ");
+client.login(" ");
